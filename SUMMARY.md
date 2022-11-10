@@ -51,7 +51,7 @@
   * [7.4. Serialization：如何封裝資料](advanced\_tech/7serialization.md)
   * [7.5. 資料封裝](advanced\_tech/7\_encap.md)
   * [7.6. 廣播封包：Hello World！](advanced\_tech/7broadcast.md)
-* [8. 常見的問題](08-FAQ.md)
+* [8. 常見的問題](faq.md)
 * [9. Man 使用手冊](man/README.md)
   * [9.1. accept()](man/accept.md)
   * [9.2. bind()](man/bind.md)
