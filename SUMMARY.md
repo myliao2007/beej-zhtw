@@ -6,6 +6,7 @@
 * [0.3. 中文授權](license.md)
 * [0.4. 原著資訊](original.md)
 * [0.5. 進階資料](advanced\_ref.md)
+* [0.6. 譯者誌謝](translator\_comment.md)
 * [1. 導讀](introduction/README.md)
   * [1.1. 本書的讀者](introduction/readers.md)
   * [1.2. 平台與編譯器](introduction/platform\_compiler.md)
@@ -82,4 +83,3 @@
   * [10.2. 網站參考資料](reference/ref\_webs.md)
   * [10.3. RFC](reference/rfc.md)
 * [11. 原著誌謝](original\_comment.md)
-* [12. 譯者誌謝](translator\_comment.md)
