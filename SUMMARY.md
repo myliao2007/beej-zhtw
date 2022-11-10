@@ -1,12 +1,12 @@
 # Table of contents
 
 * [簡介](README.md)
-* [聯絡譯者](contact.md)
+* [原著資訊](original.md)
+* [譯者誌謝](translator\_comment.md)
+* [進階資料](advanced\_ref.md)
 * [簡體中文版](chinese-simple.md)
 * [中文授權](license.md)
-* [原著資訊](original.md)
-* [進階資料](advanced\_ref.md)
-* [譯者誌謝](translator\_comment.md)
+* [聯絡譯者](contact.md)
 * [1. 導讀](introduction/README.md)
   * [1.1. 本書的讀者](introduction/readers.md)
   * [1.2. 平台與編譯器](introduction/platform\_compiler.md)
