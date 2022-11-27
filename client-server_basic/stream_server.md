@@ -10,6 +10,7 @@ $ telnet remotehostname 3490
 
 Server的程式碼如下 \[20]：
 
+{% code lineNumbers="true" %}
 ```c
 /*
 ** server.c – 展示一個stream socket server
@@ -140,6 +141,7 @@ int main(void)
   return 0;
 }
 ```
+{% endcode %}
 
 趁著你對這個例子還感到很好奇，我為了讓句子比較清楚（我個人覺得），所以將程式碼放在一個大的 main() 函式中，如果你覺得將它分成幾個小一點的函式會比較好的話，可以儘管去做。
 

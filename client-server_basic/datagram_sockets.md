@@ -6,6 +6,7 @@ Listener 位於一台機器中，等待進入 port 4950 的封包。Talker 則�
 
 這裡就是 listener.c 的原始程式碼 \[22]：
 
+{% code lineNumbers="true" %}
 ```c
 /*
 ** listener.c -- 一個 datagram sockets "server" 的 demo
@@ -107,6 +108,7 @@ int main(void)
   return 0;
 }
 ```
+{% endcode %}
 
 要注意的是，在我們呼叫 getaddrinfo()時，我們是使用 SOCK\_DGRAM。還要注意到，不需要 listen()或是 accept()，這是使用（免連線）datagram sockets 的一個好處！
 

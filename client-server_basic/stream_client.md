@@ -6,6 +6,7 @@ Client 的程式碼 \[21]：
 
 \[21] [http://beej.us/guide/bgnet/examples/client.c](http://beej.us/guide/bgnet/examples/client.c)
 
+{% code lineNumbers="true" %}
 ```c
 /*
 /*
@@ -97,5 +98,6 @@ int main(int argc, char *argv[])
   return 0;
 }
 ```
+{% endcode %}
 
 要注意的是，你如果沒有在執行 client 以前先啟動 server 的話，connect() 會傳回 "Connection refused"，這個訊息很有幫助。
