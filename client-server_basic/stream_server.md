@@ -1,6 +1,6 @@
 # 6.1. 簡單的 Stream Server
 
-這個 server 所做的事情就是透過 stream connection（串流連線）送出 "Hello, World!\n" 字串。你所需要做就是用一個視窗來測試執行 server，並用另一個視窗來 telnet 到 server：
+這個 server 所處理的事情就是透過 stream connection（串流連線）送出 "Hello, World!\n" 字串。你所需要做就是用一個視窗來測試執行 server，並用另一個視窗來 telnet 到 server：
 
 ```shell
 $ telnet remotehostname 3490
