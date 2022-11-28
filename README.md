@@ -8,5 +8,5 @@
 
 * 譯者：[Aaron Liao (廖明沂)](http://aaron.netdpi.net)
 * Facebook：[https://www.facebook.com/applezulab](https://www.facebook.com/applezulab)
-* 2014 \~ 2022
+* 更新：2014 \~ 2022
 
