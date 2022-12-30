@@ -6,7 +6,7 @@
 
 
 
-* 譯者：[Aaron Liao (廖明沂)](http://aaron.netdpi.net)
+* 譯者：[Aaron Liao (廖明沂)](http://applezulab.netdpi.net)
 * Facebook：[https://www.facebook.com/applezulab](https://www.facebook.com/applezulab)
 * 發佈日期：2014
 
