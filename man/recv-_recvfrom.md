@@ -24,7 +24,7 @@ ssize_t recvfrom(int s, void *buf, size_t len, int flags,
 所以你可以傳遞那些奇妙的 flags 呢？這裡列出一部分，但是你系統所支援的功能你應該要自行查看你的 man 使用手冊。你可以用 OR 位元運算來同時使用這些 flags，如果你只是想要使用一般香草口味的 recv()，那只要將 flags 設定為 0 就可以了。
 
 * MSG\_OOB    接收 Out of Band（頻外）資料，這個要接收的資料是有設定 MSG\_OOB flag 的 send() 所送來的。身為接收端，會有 SIGURG 訊號來告訴你有緊急資料（urgent data）需要處理。所以你可以在這個訊號的處理常式（handler）中搭配 MSG\_OOB flag 來呼叫 recv()。
-* MSG\_PEEK    如果你想要假裝呼叫 recv()（裝個樣子），你可以搭配這個 flag 來呼叫 flag，這個可以讓你知道緩衝區中有哪些資料存在，這個 flag 可以讓 recv() 先預覽緩衝區中的資料而沒有真正的接收進來，下次沒有用 MSG\_PEEK 的 recv() 才會真的將這些資料收進來。
+* MSG\_PEEK    如果你想要假裝呼叫 recv()（裝個樣子），你可以搭配這個 flag 來呼叫 recv()，這個可以讓你知道緩衝區中有哪些資料存在，這個 flag 可以讓 recv() 先預覽緩衝區中的資料而沒有真正的接收進來，下次沒有用 MSG\_PEEK 的 recv() 才會真的將這些資料收進來。
 * MSG\_WAITALL    你可以用這個 flag 告訴 recv()，資料長度沒有達到你在 len 參數指定的長度以前別想返回，雖然在特殊的情況下還是事與願違，比如遇到訊號中斷了 recv() call、發生了一些錯誤、或者遠端關閉連線之類的情況。這就別跟它計較了。
 
 當你呼叫 recv() 時，它會 block，直到讀到了一些資料，如果你希望它不會 block，那麼可以將 socket 設定為 non-blocking、或者是在呼叫 recv() 或 recvfrom() 以前，使用 select() 或 poll() 檢查 socket 上是否有資料。
@@ -84,9 +84,9 @@ printf("recv()'d %d bytes of data in buf\n", byte_count);
 printf("from IP address %s\n",
     inet_ntop(addr.ss_family,
         addr.ss_family == AF_INET?
-            ((struct sockadd_in *)&addr)->sin_addr:
-            ((struct sockadd_in6 *)&addr)->sin6_addr,
-        ipstr, sizeof ipstr);
+            ((struct sockaddr_in *)&addr)->sin_addr:
+            ((struct sockaddr_in6 *)&addr)->sin6_addr,
+        ipstr, sizeof ipstr));
 ```
 
 ## 參考

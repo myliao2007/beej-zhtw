@@ -16,7 +16,7 @@ struct hostent *gethostbyaddr(const char *addr, int len, int type);
 
 請注意：這兩個函式已經由 getaddrinfo() 與 getnameinfo() 取而代之！實際上，gethostbyname() 無法在 IPv6 中正常運作。
 
-這些函式可以轉換 host names 與 IP addresses。例如：你可以用 gethostbyname() 取得 " 其 IP addresses，並儲存在 struct in\_addr。
+這些函式可以轉換 host names 與 IP addresses。例如：你可以用 gethostbyname() 取得類似 "www.example.com" 主機的 IP addresses，並儲存在 struct in\_addr。
 
 反之，如果你有一個 struct in\_addr 或 struct in6\_addr，你可以用 gethostbyaddr() 取回 hostname。gethostbyaddr() 與 IPv6 相容，但是你應該使用新的 getnameinfo() 取代之。
 
@@ -26,13 +26,13 @@ gethostbyname() 接收一個類似 "www.yahoo.com" 的字串，然後傳回一�
 
 在 gethostbyaddr() 代入一個 struct in\_addr 或 struct in6\_addr，然後就會提供你一個相對應的 host name（如果有），因此，它是 gethostbyname() 的相反式。至於參數，addr 是一個 char\*，你實際上想要用一個指向 struct in\_addr 的指標傳遞；len 應是 sizeof(struct in\_addr)，而 type 應為 AF\_INET。所以這個 struct hostent 會帶回什麼呢？它有許多欄位，包含 host 的相關資訊。
 
-char _h\_name 真正的 real canonical host name。 char **h\_aliases 一連串的別名，可以用陣列存取—最後一個元素（element）是 NULL。 int h\_addrtype address type 的答案，這個在我們的用途應該是 AF\_INET。 int length address 的長度（以 byte 為單位），這個在 IP (version 4) address 是 4。 char** h\_addr\_list 這個主機的 IP addresses 清單。雖然這是個 char\*\*，不過實際上是 struct in\_addr_s 所偽裝的陣列，最後一個元素是 NULL。 h\_addr 為 h\_addr\_list\[0] 所定義的通用別名，如果你只是想要任意一個舊有的 IP addres，就用這個欄位吧。（耶，它們可以大於一個）。
+char _h\_name 真正的 real canonical host name。 char **h\_aliases 一連串的別名，可以用陣列存取—最後一個元素（element）是 NULL。 int h\_addrtype address type 的答案，這個在我們的用途應該是 AF\_INET。 int length address 的長度（以 byte 為單位），這個在 IP (version 4) address 是 4。 char** h\_addr\_list 這個主機的 IP addresses 清單。雖然這是個 char\*\*，不過實際上是 struct in\_addr_s 所偽裝的陣列，最後一個元素是 NULL。 h\_addr 為 h\_addr\_list\[0] 所定義的通用別名，如果你只是想要任意一個舊有的 IP address，就用這個欄位吧。（耶，它們可以大於一個）。
 
 ## 傳回值
 
 成功時傳回指向 struct hostent 結果的指標，錯誤時傳回 NULL。
 
-跟你平常使用的錯誤報告工具不同，也不是一般的 perror()，這些函式在 h\_errno 變數中有同樣的結果，可以使用 herror() 或 hstrerror() 函式印出來，這些函式運作的方式類似你常用的典型 errnor、perror() 及 strerror() 函式。
+跟你平常使用的錯誤報告工具不同，也不是一般的 perror()，這些函式在 h\_errno 變數中有同樣的結果，可以使用 herror() 或 hstrerror() 函式印出來，這些函式運作的方式類似你常用的典型 errno、perror() 及 strerror() 函式。
 
 ## 範例
 

@@ -158,7 +158,7 @@ else if (n == -2) {
 
 所以你用我的程式碼所需要做的只有：找出讀資料與透過網路傳送［使用 send()］這中間的段落，並在那裡加上編碼的程式碼。
 
-我一直看到的 ＂PF\_INET＂是什麼呢？他跟 AF\_INET 有關係嗎？
+## 我一直看到的 ＂PF\_INET＂是什麼呢？他跟 AF\_INET 有關係嗎？
 
 是的，有關係，細節請參考 socket() 章節。
 
@@ -244,7 +244,7 @@ Linux man 使用手冊建議使用 alarm() 或 setitimer() 作為替代品。
 
 如果 port 已經在使用中，你將會在嘗試 bind() 時遇到 "Address already in use" 錯誤。選擇另一個 port。［利用 config 組態檔或命令列參數設定，讓你的軟體使用者能指定 port 也是個不錯的想法］。
 
-有一個官方的 port nubmer \[41] 清單，由 Internet Assigned Numbers Authority（IANA）所維護的。在清單中的 port（超過 1023）並不代表你就不能使用，比如，Id 軟體的 DOOM 跟 ＂mdqs＂ 用一樣的 port，不管那是什麼，最重要的是在同一台機器上沒有人用掉你要用的 port。
+有一個官方的 port number \[41] 清單，由 Internet Assigned Numbers Authority（IANA）所維護的。在清單中的 port（超過 1023）並不代表你就不能使用，比如，Id 軟體的 DOOM 跟 ＂mdqs＂ 用一樣的 port，不管那是什麼，最重要的是在同一台機器上沒有人用掉你要用的 port。
 
 \[37] [http://www.unpbook.com/src.html](http://www.unpbook.com/src.html)
 

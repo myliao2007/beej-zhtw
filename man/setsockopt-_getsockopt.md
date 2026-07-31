@@ -54,7 +54,7 @@ setsockopt(s2, SOL_SOCKET, SO_BINDTODEVICE, optval2, 4);
 // 檢測是否有設定 SO_BROADCAST flag：
 getsockopt(s3, SOL_SOCKET, SO_BROADCAST, &optval, &optlen);
 if (optval != 0) {
-    print("SO_BROADCAST enabled on s3!\n");
+    printf("SO_BROADCAST enabled on s3!\n");
 }
 ```
 
