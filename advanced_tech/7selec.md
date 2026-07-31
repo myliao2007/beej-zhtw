@@ -296,7 +296,7 @@ int main(void)
 
 我說過在程式碼中有兩個 file descriptor set：master 與 read\_fds。前面的 master 記錄全部現有連線的 socket descriptor，與正在 listen 新連線的 socket descriptor 一樣。
 
-我用 master 的理由是因為 select() 實際上會改變你傳送過去的 set，用來反映目前就緒可讀（ready for read）的 socket。因為我必須在在兩次的 select() calls 期間也能夠持續追蹤連線，所以我必須將這些資料安全地儲存在某個地方。最後，我再將 master 複製到 read\_fds，並接著呼叫 select()。
+我用 master 的理由是因為 select() 實際上會改變你傳送過去的 set，用來反映目前就緒可讀（ready for read）的 socket。因為我必須在兩次的 select() calls 期間也能夠持續追蹤連線，所以我必須將這些資料安全地儲存在某個地方。最後，我再將 master 複製到 read\_fds，並接著呼叫 select()。
 
 可是這不就代表每當有新連線時，我就要將它新增到 master set 嗎？是的！
 

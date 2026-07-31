@@ -24,7 +24,7 @@ in_addr_t inet_addr(const char *cp);
 
 inet\_ntoa() 函式將 network address 由 struct in\_addr 轉換為句號與數字組成的字串格式，依照過去的習慣，"ntoa" 裡的 "n" 表示 network，而 "a" 表示 ASCII（所以這是 "network To ASCII" - "toa" 後綴類似它的好朋友，C 函式庫的 atoi()，這是用來將 ASCII 字串轉換為整數 ）。
 
-inet\_aton() 函式則是相反的功能，將句號與數字組成的字串格式轉換到 in\_addr\_t（這你 struct in\_addr 中 s\_addr 欄位的型別）。
+inet\_aton() 函式則是相反的功能，將句號與數字組成的字串格式轉換到 in\_addr\_t（這是 struct in\_addr 中 s\_addr 欄位的型別）。
 
 最後，inet\_addr() 是個舊函式，基本上與 inet\_aton() 是一樣的東西，理論上不宜使用，但是你還是會很常遇到它，而且如果你用了，警察也不會來找你。
 

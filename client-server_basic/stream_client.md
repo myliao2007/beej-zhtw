@@ -9,7 +9,6 @@ Client 的程式碼 \[21]：
 {% code lineNumbers="true" %}
 ```c
 /*
-/*
 ** client.c -- 一個 stream socket client 的 demo
 */
 #include <stdio.h>
@@ -24,7 +23,7 @@ Client 的程式碼 \[21]：
 #include <arpa/inet.h>
 
 #define PORT "3490" // Client 所要連線的 port
-#define MAXDATASIZE 100 // 我們一次可以收到的最大位原組數（number of bytes）
+#define MAXDATASIZE 100 // 我們一次可以收到的最大位元組數（number of bytes）
 
 // 取得 IPv4 或 IPv6 的 sockaddr：
 void *get_in_addr(struct sockaddr *sa)

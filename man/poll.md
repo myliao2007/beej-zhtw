@@ -64,7 +64,7 @@ s2 = socket(PF_INET, SOCK_STREAM, 0);
 ufds[0].fd = s1;
 ufds[0].events = POLLIN | POLLPRI; // 要檢查是一般資料或 out-of-band 資料
 
-ufds[1] = s2;
+ufds[1].fd = s2;
 ufds[1].events = POLLIN; // 只檢查一般的資料
 
 // 等待 sockets 上的事件，timeout 時間是 3.5 秒

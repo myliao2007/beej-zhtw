@@ -65,15 +65,15 @@ struct sockaddr_storage {
 
 宇宙的盡頭這件事只是開個玩笑 ... 若當你將 struct sockaddr\_in _轉型為 struct sockaddr_ 時已經到了宇宙的盡頭，那我保證這必定純屬巧合，所以你根本不用擔心這件事啦。
 
-恩，還要記得一點，如果一個函式允許你代入一個 struct sockaddr _參數時，你就可以放心地將你的 struct sockaddr\_in_、struct sockaddr\_in6 _或 struct sockadd\_storage_ 轉型成這個型別。
+恩，還要記得一點，如果一個函式允許你代入一個 struct sockaddr _參數時，你就可以放心地將你的 struct sockaddr\_in_、struct sockaddr\_in6 _或 struct sockaddr\_storage_ 轉型成這個型別。
 
 struct sockaddr\_in 是 IPv4 addresses（例如："192.0.2.10"）在用的資料結構，它承載了一個 address family (AF\_INET)：在 sin\_port 有一個 port，而在 sin\_addr 有一個 IPv4 address in sin\_addr。
 
-還有 struct sockadd\_in 中的 sin\_zero 欄位，有些人認為這個一定要設定成零，但有些人認為不用設定任何值（Linux 文件一點也沒有提過這件事），而且設定成零似乎沒有實際的用途。不過如果你喜歡，還是可以用 memset() 將它設定為零。
+還有 struct sockaddr\_in 中的 sin\_zero 欄位，有些人認為這個一定要設定成零，但有些人認為不用設定任何值（Linux 文件一點也沒有提過這件事），而且設定成零似乎沒有實際的用途。不過如果你喜歡，還是可以用 memset() 將它設定為零。
 
 目前 struct in\_addr 在不同的系統上是個怪東西，有時候它是瘋狂的大總匯（crazy union），有各種 #define 與一堆鬼東西。不過你該做的只是用這個 structure 的 s\_addr 欄位，因為多數的系統只會實作這個欄位。
 
-struct sockadd\_in6 與 struct in6\_addr 不僅都適用於 IPv6，而且都非常相似。
+struct sockaddr\_in6 與 struct in6\_addr 不僅都適用於 IPv6，而且都非常相似。
 
 當你試著寫與 IP 版本無關的程式時，struct sockaddr\_storage 是你可以傳遞給 accept() 或 recvfrom() 的資料結構，而且你不需知道新的 address 是走 IPv4 或 IPv6 協定。資料結構 struct sockaddr\_storage 不像原本小小的 struct sockaddr，而是大到足以承載兩種型別。
 

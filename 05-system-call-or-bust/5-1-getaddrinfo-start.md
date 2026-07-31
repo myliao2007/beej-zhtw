@@ -31,7 +31,7 @@ node 參數是要連線的主機名稱，或者一個 IP address（位址）。
 
 ```c
 int status;
-struct addrinfo hints;c
+struct addrinfo hints;
 struct addrinfo *servinfo; // 將指向結果
 
 memset(&hints, 0, sizeof hints); // 確保 struct 為空
@@ -55,7 +55,7 @@ freeaddrinfo(servinfo); // 釋放這個鏈結串列
 
 還有，你會在這裡看到 AI\_PASSIVE 旗標；這個會告訴 getaddrinfo() 要將我本機的位址（address of local host）指定給 socket structure。這樣很棒，因為你就不用把位址寫死了［或者你可以將特定的位址放在 getaddrinfo() 的第一個參數中，我現在寫 NULL 的那個參數］。
 
-然後我們執行呼叫，若有錯誤發生時［getaddrinfo 會傳回非零的值］，如你所見，我們可以使用 gai\_strerror() 函式將錯誤印出來。若每件事情都正常運作，那麼 serinfo 就會指向一個 struct addrinfos 的鏈結串列，串列中的每個成員都會包含一個我們之後會用到的某種 struct sockaddr。
+然後我們執行呼叫，若有錯誤發生時［getaddrinfo 會傳回非零的值］，如你所見，我們可以使用 gai\_strerror() 函式將錯誤印出來。若每件事情都正常運作，那麼 servinfo 就會指向一個 struct addrinfos 的鏈結串列，串列中的每個成員都會包含一個我們之後會用到的某種 struct sockaddr。
 
 最後，當我們終於使用 getaddrinfo() 配置的鏈結串列完成工作後，我們可以［也應該］要呼叫 freeaddrinfo() 將鏈結串列全部釋放。
 
@@ -74,8 +74,11 @@ hints.ai_socktype = SOCK_STREAM; // TCP stream sockets
 status = getaddrinfo("www.example.net", "3490", &hints, &servinfo);
 
 // servinfo 現在指向有一個或多個 struct addrinfos 的鏈結串列
+```
 
-我一直說 serinfo 是一個鏈結串列，它有各種的位址資訊。讓我們寫一個能快速 demo 的程式，來呈現這個資訊。這個小程式 [18] 會印出你在命令列中所指定的主機之 IP address：
+我一直說 servinfo 是一個鏈結串列，它有各種的位址資訊。讓我們寫一個能快速 demo 的程式，來呈現這個資訊。這個小程式 [18] 會印出你在命令列中所指定的主機之 IP address：
+
+```c
 /*
 ** showip.c -- 顯示命令列中所給的主機 IP address
 */

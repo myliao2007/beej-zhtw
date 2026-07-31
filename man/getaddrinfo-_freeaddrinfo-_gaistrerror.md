@@ -87,7 +87,7 @@ if ((rv = getaddrinfo("www.example.com", "http", &hints, &servinfo)) != 0) {
 
 // 不斷執行迴圈，直到我們可以連線成功
 for(p = servinfo; p != NULL; p = p->ai_next) {
-  if ((sockfd = socket(p->ai_family, p->ai_socktype,　p->ai_protocol)) == -1) {
+  if ((sockfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol)) == -1) {
       perror("socket");
       continue;
   }
