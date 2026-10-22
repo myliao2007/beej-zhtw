@@ -6,7 +6,7 @@
 
 這本書是以 XML 撰寫，使用有安裝 GNU tools 的 Slackware Linux 系統與 vim 編輯器。
 
-封面的＂藝術＂與圖片是使用 Inkscape 產生的，使用客制化的 Python scripts 將 XML 轉換為 HTML 與 XSL-FO。接著用 Apache FOP 將 XSL-FO 輸出檔轉為 Liberation 字型的 PDF 文件檔，Toolchain 100% 都使用自由與開放原始碼軟體。
+封面的＂藝術＂與圖片是使用 Inkscape 產生的，使用客製化的 Python scripts 將 XML 轉換為 HTML 與 XSL-FO。接著用 Apache FOP 將 XSL-FO 輸出檔轉為 Liberation 字型的 PDF 文件檔，Toolchain 100% 都使用自由與開放原始碼軟體。
 
 以下聲明保留原文：
 

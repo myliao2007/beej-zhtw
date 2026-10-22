@@ -12,7 +12,7 @@
 
 好，Internet 上不同的服務都有已知的（well-known）port numbers。你可以在 Big IANA Port 清單 \[12] 中找到，如果你用的是 Unix 系統，你可以參考檔案 /etc/services。HTTP（網站）是 port 80、telnet 是 port 23、SMTP 是 port 25，而 DOOM 遊戲 \[13] 使用 port 666 等，諸如此類。Port 1024 以下通常是有特定用途的，而且要有作業系統管理員權限才能使用。
 
-摁，這就是 port number 的介紹。
+嗯，這就是 port number 的介紹。
 
 \[12] [http://www.iana.org/assignments/port-numbers](http://www.iana.org/assignments/port-numbers)
 

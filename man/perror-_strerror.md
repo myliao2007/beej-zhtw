@@ -34,7 +34,7 @@ int s;
 s = socket(PF_INET, SOCK_STREAM, 0);
 
 if (s == -1) { // some error has occurred
-    // 印出 "socket error： " + 錯誤訊息：
+    // 印出 "socket error: " + 錯誤訊息：
     perror("socket error");
 }
 

@@ -45,4 +45,4 @@ connect(sockfd, res->ai_addr, res->ai_addrlen);
 
 要確定有檢查 connect() 的回傳值，它在錯誤時會傳回 -1，並設定 errno 變數。
 
-還要注意的是，我們不會呼叫 bind()。基本上，我們不用管我們的 local port number；我們只在意我們的目地（遠端 port）。Kernel 會幫我們選擇一個 local port，而我們要連線的站台會自動從我們這裡取得資訊，不用擔心。
+還要注意的是，我們不會呼叫 bind()。基本上，我們不用管我們的 local port number；我們只在意我們的目的地（遠端 port）。Kernel 會幫我們選擇一個 local port，而我們要連線的站台會自動從我們這裡取得資訊，不用擔心。

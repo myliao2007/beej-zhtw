@@ -26,13 +26,13 @@ sa6.sin6_addr = in6addr_any;  // 使用我的 IPv6 位址
 struct in6_addr ia6 = IN6ADDR_ANY_INIT;
 ```
 
-1. 使用 struct sockaddr\_in6 取代 struct sockaddr\_in，確定要將 "6" 新增到適當的欄位［參考上面的 structs］，但沒有 sin6\_zero 欄位。
-2. 使用 struct in6\_addr 取代 struct in\_addr，要確定有將 "6" 新增到適當的欄位［參考上面的structs］。
-3. 使用 inet\_pton() 取代 inet\_aton() 或 inet\_addr()。
-4. 使用 inet\_ntop() 取代 inet\_ntoa()。
-5. 使用很讚的 getaddrinfo() 取代 gethostbyname()。
-6. 使用很讚的 getnameinfo() 取代 gethostbyaddr()［雖然 gethostbyaddr()在 IPv6 中也能正常運作］。
-7. 不要用 INADDR\_BROADCAST 了，請愛用 IPv6 multicast 來替代。
+6. 使用 struct sockaddr\_in6 取代 struct sockaddr\_in，確定要將 "6" 新增到適當的欄位［參考上面的 structs］，但沒有 sin6\_zero 欄位。
+7. 使用 struct in6\_addr 取代 struct in\_addr，要確定有將 "6" 新增到適當的欄位［參考上面的structs］。
+8. 使用 inet\_pton() 取代 inet\_aton() 或 inet\_addr()。
+9. 使用 inet\_ntop() 取代 inet\_ntoa()。
+10. 使用很讚的 getaddrinfo() 取代 gethostbyname()。
+11. 使用很讚的 getnameinfo() 取代 gethostbyaddr()［雖然 gethostbyaddr()在 IPv6 中也能正常運作］。
+12. 不要用 INADDR\_BROADCAST 了，請愛用 IPv6 multicast 來替代。
 
 就是這樣。
 

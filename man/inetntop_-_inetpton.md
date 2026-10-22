@@ -18,7 +18,7 @@ int inet_pton(int af, const char *src, void *dst);
 
 有時你不想要看一堆二進制數字格式的 IP address，你想要比較好懂的格式，類似 192.0.2.180 或 2001:db8:8714:3a90::12 這樣的格式。在這種情況下，你可以使用 inet\_ntop()。
 
-inet\_ntop() 在 af 參數中代入 address family（不是 AF\_INET 就是 AF\_INET6），src 參數應該是個指向 struct in\_addr 或 struct in6\_addr 的指標，會包含你想要轉換為字串的 address。最後，dst 與 size 是指向目地字串與該字串最大長度的指標。
+inet\_ntop() 在 af 參數中代入 address family（不是 AF\_INET 就是 AF\_INET6），src 參數應該是個指向 struct in\_addr 或 struct in6\_addr 的指標，會包含你想要轉換為字串的 address。最後，dst 與 size 是指向目的字串與該字串最大長度的指標。
 
 dst 字串的最大長度是多少呢？ IPv4 與 IPv6 address 的最大長度是多少呢？很幸運地，有兩個 macros（巨集）可以幫你做這件事，最大長度是：INET\_ADDRSTRLEN 與 INET6\_ADDRSTRLEN。
 
@@ -26,7 +26,7 @@ dst 字串的最大長度是多少呢？ IPv4 與 IPv6 address 的最大長度�
 
 inet\_pton() 也會在 af 參數代入一個 address family（不是 AF\_INET 就是 AF\_INET6）、src 參數是指向可列印格式的 IP address 字串、最後的 dst 參數指向要儲存結果的地方，這可能是 struct in\_addr 或 struct in6\_addr。
 
-上述的這些函式不能做 DNS 查詢，你需要使用 getaddinfo()。
+上述的這些函式不能做 DNS 查詢，你需要使用 getaddrinfo()。
 
 ## 傳回值
 

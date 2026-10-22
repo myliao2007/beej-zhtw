@@ -28,7 +28,7 @@ Application（應用層） Presentation（表現層） Session（會談層） Tr
 
 看看在打造一個簡單的封包需要多少工作呢？
 
-天阿！你得自己用 "cat" 將資訊填入封包的 header 裡！
+天啊！你得自己用 "cat" 將資訊填入封包的 header 裡！
 
 開玩笑的啦。
 
@@ -36,7 +36,7 @@ Application（應用層） Presentation（表現層） Session（會談層） Tr
 
 所以該結束我們短暫的網路理論之旅了。
 
-喔！對了，我忘記告訴你我想要談談 routing（路由遶送）了。恩，沒事！沒關係，我不打算全部講完。
+喔！對了，我忘記告訴你我想要談談 routing（路由遶送）了。嗯，沒事！沒關係，我不打算全部講完。
 
 Router（路由器）會解開封包的 IP header，參考自己的 routing table（路由表）…。如果你真的很想知道，你可以讀 IP RFC \[9]。如果你永遠都不想碰它，其實你也可以過得很好。
 

@@ -16,7 +16,7 @@ ssize_t sendto(int s, const void *buf, size_t len,
 
 ## 說明
 
-這些函式透過 socket 傳送資料，一般而言，send() 用在需連線的 TCP SOCK\_STREAM socket，而 sendto() 用在免連線的 UDP SOCK\_DGRAM socket。對於免連線 sockets，你每次都必須指定封包的目地，而這就是為什麼 sendto() 的最後一個參數需要定義封包的目地。
+這些函式透過 socket 傳送資料，一般而言，send() 用在需連線的 TCP SOCK\_STREAM socket，而 sendto() 用在免連線的 UDP SOCK\_DGRAM socket。對於免連線 sockets，你每次都必須指定封包的目的地，而這就是為什麼 sendto() 的最後一個參數需要定義封包的目的地。
 
 在 send() 與 sendto() 中，s 參數是 socket、buf 是指向要傳送資料的指標、len 是你想要傳送的資料量、而 flags 讓你可以指定更多資訊，決定要如何傳送資料。如果你只是想要送一般的資料，可以將 flags 設定為零。這裡有些常用的 flags，細節可以參考你電腦上的 send() man 使用手冊。
 

@@ -13,7 +13,7 @@ Server的程式碼如下 \[20]：
 {% code lineNumbers="true" %}
 ```c
 /*
-** server.c – 展示一個stream socket server
+** server.c -- 展示一個stream socket server
 */
 #include <stdio.h>
 #include <stdlib.h>

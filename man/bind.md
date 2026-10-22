@@ -14,7 +14,7 @@ int bind(int sockfd, struct sockaddr *my_addr, socklen_t addrlen);
 
 當遠端機器想要連線到你的伺服器程式時，他需要兩項資訊：IP address 及 port number。 而 bind() call 可以讓你做這件事。
 
-首先你要先呼叫 getaddrinfo() 載入 struct sockaddr，以取得 destination address（目地位址）與 port 的資訊。然後你呼叫 socket() 以取得一個 socket descriptor，接著將這個 socket 與 address 傳遞給 bind()，然後 IP address 跟 port 就會很神奇的跟 socket 綁在一起了（使用真的魔法）！
+首先你要先呼叫 getaddrinfo() 載入 struct sockaddr，以取得 destination address（目的位址）與 port 的資訊。然後你呼叫 socket() 以取得一個 socket descriptor，接著將這個 socket 與 address 傳遞給 bind()，然後 IP address 跟 port 就會很神奇的跟 socket 綁在一起了（使用真的魔法）！
 
 如果你不知道你電腦的 IP address、或你知道你的電腦只有一個 IP address、或你不在意要用電腦上的哪個 IP address 時，你可以單純地將 getaddrinfo() 的 hints.ai\_flags 參數設定為 AI\_PASSIVE，這裡所做的事情就是將特別的值填入 struct sockaddr 的 IP address 欄位，以告訴 bind() 說它應該要自動填入這個主機的 IP address。
 

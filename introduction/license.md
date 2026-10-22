@@ -1,6 +1,6 @@
 # 1.9. 版權與散佈
 
-Beej's Guide to Network Programming 版權是屬於 Copyright © 2012 Brian “Beej Jorgensen” Hall。對於特定的程式碼與譯本，在下面會另外說明，本作品基於 Creative Commons Attribution- Noncommercial- No Derivative Works 3.0 License 授權。欲檢視該授權的複本請參考 [http://creativecommons.org/licenses/by-nc-nd/3.0/，Creative](http://creativecommons.org/licenses/by-nc-nd/3.0/%EF%BC%8CCreative) Commons，或者寫封信到這個住址：171 Second Street, Suite 300, San Francisco, California, 94105, USA. 對於該授權 “No Derivative Works” 這部分的例外如下：這份文件可以自由翻譯成任何語言，提供的譯本要正確，而重新列印時需要保持本作品的完整性。原本的作品授權規範亦會套用於譯本上。譯本可以包含譯者的名字與聯絡資訊。本作品所介紹的 C 原始程式碼以公眾領域（public domain）授權，並完全免於任何授權限制。歡迎老師們免費推薦或提供本作品的複本給你們的學生使用。
+Beej's Guide to Network Programming 版權是屬於 Copyright © 2012 Brian “Beej Jorgensen” Hall。對於特定的程式碼與譯本，在下面會另外說明，本作品基於 Creative Commons Attribution- Noncommercial- No Derivative Works 3.0 License 授權。欲檢視該授權的複本請參考 [http://creativecommons.org/licenses/by-nc-nd/3.0/](http://creativecommons.org/licenses/by-nc-nd/3.0/)，Creative Commons，或者寫封信到這個住址：171 Second Street, Suite 300, San Francisco, California, 94105, USA. 對於該授權 “No Derivative Works” 這部分的例外如下：這份文件可以自由翻譯成任何語言，提供的譯本要正確，而重新列印時需要保持本作品的完整性。原本的作品授權規範亦會套用於譯本上。譯本可以包含譯者的名字與聯絡資訊。本作品所介紹的 C 原始程式碼以公眾領域（public domain）授權，並完全免於任何授權限制。歡迎老師們免費推薦或提供本作品的複本給你們的學生使用。
 
 需要更多訊息請聯繫 beej@beej.us
 
