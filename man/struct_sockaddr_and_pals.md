@@ -59,15 +59,15 @@ struct sockaddr_storage {
 
 ## 說明
 
-對於 internet address 全部的 syscalls 及函式都有基本的資料結構，通常你會用 getaddinfo() 填好這些資料結構，然後當你需要時，就可以讀取它們。
+對於 internet address 全部的 syscalls 及函式都有基本的資料結構，通常你會用 getaddrinfo() 填好這些資料結構，然後當你需要時，就可以讀取它們。
 
 印象中，struct sockaddr\_in 與 struct sockaddr\_in6 會共用相同的 struct sockaddr 起始資料結構，而你能自由地將一種型別轉型為另一種型別，除非你到了宇宙的盡頭，不然是不會有任何問題的。
 
-宇宙的盡頭這件事只是開個玩笑 ... 若當你將 struct sockaddr\_in _轉型為 struct sockaddr_ 時已經到了宇宙的盡頭，那我保證這必定純屬巧合，所以你根本不用擔心這件事啦。
+宇宙的盡頭這件事只是開個玩笑 ... 若當你將 struct sockaddr\_in\* 轉型為 struct sockaddr\* 時已經到了宇宙的盡頭，那我保證這必定純屬巧合，所以你根本不用擔心這件事啦。
 
-恩，還要記得一點，如果一個函式允許你代入一個 struct sockaddr _參數時，你就可以放心地將你的 struct sockaddr\_in_、struct sockaddr\_in6 _或 struct sockaddr\_storage_ 轉型成這個型別。
+恩，還要記得一點，如果一個函式允許你代入一個 struct sockaddr\* 參數時，你就可以放心地將你的 struct sockaddr\_in\*、struct sockaddr\_in6\* 或 struct sockaddr\_storage\* 轉型成這個型別。
 
-struct sockaddr\_in 是 IPv4 addresses（例如："192.0.2.10"）在用的資料結構，它承載了一個 address family (AF\_INET)：在 sin\_port 有一個 port，而在 sin\_addr 有一個 IPv4 address in sin\_addr。
+struct sockaddr\_in 是 IPv4 addresses（例如："192.0.2.10"）在用的資料結構，它承載了一個 address family (AF\_INET)：在 sin\_port 有一個 port，而在 sin\_addr 有一個 IPv4 address。
 
 還有 struct sockaddr\_in 中的 sin\_zero 欄位，有些人認為這個一定要設定成零，但有些人認為不用設定任何值（Linux 文件一點也沒有提過這件事），而且設定成零似乎沒有實際的用途。不過如果你喜歡，還是可以用 memset() 將它設定為零。
 

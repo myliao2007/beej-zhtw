@@ -8,7 +8,7 @@
 
 真的嗎？
 
-很久很久以前，有 subnets（子網路）的 "class"（分級），在這裡，位址的第一個、前二個或前三個 bytes 都是屬於 network 的一部分。如果你很幸運可以擁有一個 byte 的 network，而另外三個 bytes 是 host 位址，那在你的網路上，你有價值 24 bits 的 host number［大約兩千四百萬個位址左右］。這是一個 "Class A"（A 級）的網路；相對則是一個 "Class C"（C 級）的網路，network 有三個 bytes、而 host 只有一個 byte［256 個 hosts，而且還要再扣掉兩個保留的位址］。
+很久很久以前，有 subnets（子網路）的 "class"（分級），在這裡，位址的第一個、前二個或前三個 bytes 都是屬於 network 的一部分。如果你很幸運可以擁有一個 byte 的 network，而另外三個 bytes 是 host 位址，那在你的網路上，你有價值 24 bits 的 host number［大約一千六百萬個位址左右］。這是一個 "Class A"（A 級）的網路；相對則是一個 "Class C"（C 級）的網路，network 有三個 bytes、而 host 只有一個 byte［256 個 hosts，而且還要再扣掉兩個保留的位址］。
 
 所以，如同你所看到的，只有一些 Class A 網路，一大堆的 Class C 網路，以及一些中等的 Class B 網路。
 

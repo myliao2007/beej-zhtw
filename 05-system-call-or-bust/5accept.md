@@ -15,7 +15,7 @@ sockfd 是正在進行 listen() 的 socket descriptor。很簡單，addr 通常�
 
 有想到嗎？accept() 在錯誤發生時傳回 -1 並設定 errno。不過 BetCha 不這麼認為。
 
-跟以前一樣，用一段程式範例會比較好吸收，所以這裡有一段範例程供你細讀：
+跟以前一樣，用一段程式範例會比較好吸收，所以這裡有一段範例程式供你細讀：
 
 ```c
 #include <string.h>

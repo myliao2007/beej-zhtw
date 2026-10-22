@@ -37,7 +37,7 @@ getaddrinfo() 是很優秀的函式，可以傳回特別的主機名稱資訊（
 
 servname 參數基本上就是 port number，它可以是個 port number（以字串傳遞，如 "80"），或者是個 service name，像是 "http"、"tftp"、"smtp"、或 "pop" 等。常見的 service name 可以在 IANA Port List \[42] 或你的 /etc/services 中找到。
 
-最後的 input 參數是 hints，這就是你要定義 getaddinfo() 函式要做什麼事的地方，使用以前先用 memset() 將整個資料結構清為零，在用它之前，我們先看一下需要設定的欄位。
+最後的 input 參數是 hints，這就是你要定義 getaddrinfo() 函式要做什麼事的地方，使用以前先用 memset() 將整個資料結構清為零，在用它之前，我們先看一下需要設定的欄位。
 
 ai\_flags 可以設定成各種東西，但是這邊有件重要的事情。（可以用 OR 位元運算［｜］指定多個 flags）完整的 flags 清單請參考你的 man 使用手冊。
 
@@ -49,7 +49,7 @@ AI\_CANONNAME 會讓 ai\_canonname 填上主機的 canonical (real) name，AI\_P
 
 繼續談輸入的參數，你應該會想要將 ai\_family 設定為 AF\_UNSPEC，這樣可以讓 getaddrinfo() 知道 IPv4 與 IPv6 addresses 都需要查詢。你也能自己以 AF\_INET 或 AF\_INET6 自訂要使用 IPv4 或 IPv6。
 
-再來，socktype 欄位應該要設定為 SOCK\_STREAM 或 SOCK\_DGRAM，取決與你需要哪種類型的 socket。
+再來，socktype 欄位應該要設定為 SOCK\_STREAM 或 SOCK\_DGRAM，取決於你需要哪種類型的 socket。
 
 最後，你可以將 ai\_protocol 保留為 0，可以自動選擇你的 protocol type。
 

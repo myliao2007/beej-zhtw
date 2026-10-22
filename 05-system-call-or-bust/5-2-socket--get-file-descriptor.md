@@ -15,7 +15,7 @@ int socket(int domain, int type, int protocol);
 
 以前的人得寫死這些值，而你也可以這樣做。（domain 是 PF\_INET 或 PF\_INET6，type 是 SOCK\_STREAM 或 SOCK\_DGRAM，而 protocol 可以設定為 0，用來幫給予的 type 選擇適當的協定。或者你可以呼叫 getprotobyname() 來查詢你想要的協定，"tcp" 或 "udp"）。
 
-PF\_INET 就是你在初始化 struct sockaddr\_in 的 sin\_family 欄位會用到的，它是 AF\_INET 的親戚。實際上，它們的關係很近，所以其實它們的值也都一樣，而許多程式設計師會呼叫 socket()，並以 AF\_INET 取代 PF\_INET 來做為第一個參數傳遞。
+PF\_INET 是 AF\_INET 的親戚，而 AF\_INET 就是你在初始化 struct sockaddr\_in 的 sin\_family 欄位會用到的。實際上，它們的關係很近，所以其實它們的值也都一樣，而許多程式設計師會呼叫 socket()，並以 AF\_INET 取代 PF\_INET 來做為第一個參數傳遞。
 
 現在，你可以去拿點牛奶跟餅乾，因為又是說故事時間了。
 

@@ -22,7 +22,7 @@ File descriptor 單純是與已開啟檔案有關的整數。只是「關鍵在�
 
 「不過，嘿嘿！」
 
-現在你可能在想：「既然只是個 file descriptor，為什麼我不能用一般的 read() 與 write() call 透過 socket 進行通信，而要用這什麼鬼東西阿？」
+現在你可能在想：「既然只是個 file descriptor，為什麼我不能用一般的 read() 與 write() call 透過 socket 進行通信，而要用這什麼鬼東西啊？」
 
 簡而言之：「可以！」
 

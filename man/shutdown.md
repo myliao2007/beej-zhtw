@@ -16,7 +16,7 @@ int shutdown(int s, int how);
 
 當你使用 close() 關閉 socket descriptor 時，它會將 socket 的傳送與接收兩端都關閉，並且釋放 socket descriptor。若你只想要關閉其中一端，你就可以使用 shutdown() call。
 
-在這些參數中，s 顯然是你想要進行動作的 socket，而要進行什麼樣的動作，則要由 how 參數指定。要如何使用 SHUT\_RD 來關閉接收，SHUT\_WR 以關閉傳送，或者 SHUT\_RDWR 將收送功能都關閉。
+在這些參數中，s 顯然是你想要進行動作的 socket，而要進行什麼樣的動作，則要由 how 參數指定。可以使用 SHUT\_RD 來關閉接收，SHUT\_WR 以關閉傳送，或者 SHUT\_RDWR 將收送功能都關閉。
 
 要注意 shutdown() 並沒有釋放 socket descriptor，所以即使 socket 已經整個 shutdown 了，最終仍然得透過 close() 關閉 socket。
 

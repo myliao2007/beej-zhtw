@@ -44,7 +44,7 @@ loopback 裝置的功能是你可以執行 client goat 或 client localhost（�
 
 我不想跟你說一樣的答案：「W. Richard Stevens 會告訴你」，我只能建議你參考 UNIX Network Programming 原始程式碼 \[38] 中的 /lib/connect\_nonb.c。
 
-主要是你要用 socket() 建立一個 socket descriptor，將它設定為 non-blocking（非阻塞式），呼叫 connect()，而如果一切順利，connect() 會立刻傳回 -1，並將 errno 設定為 EINPROGRESS。接著你要呼叫 select() 並設定你想要的 timeout 時間，傳遞讀取及寫入集合（read and write sets）的 socket descriptor。如果 select() 沒有發生 timeout，這表示 connect() call 已經完成。此時，你必須使用 getsockopt() 設定 SO\_ERROR 選項以取得 connect() call 的傳回值，在沒有錯誤時，這個值應該是零。
+主要是你要用 socket() 建立一個 socket descriptor，將它設定為 non-blocking（非阻塞式），呼叫 connect()，而如果一切順利，connect() 會立刻傳回 -1，並將 errno 設定為 EINPROGRESS。接著你要呼叫 select() 並設定你想要的 timeout 時間，傳遞讀取及寫入集合（read and write sets）的 socket descriptor。如果 select() 沒有發生 timeout，這表示 connect() call 已經完成。此時，你必須使用 getsockopt() 搭配 SO\_ERROR 選項以取得 connect() call 的傳回值，在沒有錯誤時，這個值應該是零。
 
 最後，在你開始透過 socket 傳輸資料以前，你可能想要再將它設定回 blocking（阻塞）。
 
@@ -58,7 +58,7 @@ loopback 裝置的功能是你可以執行 client goat 或 client localhost（�
 
 ## 我該如何在 Solaris/SunOS 上編譯程式呢？在我嘗試編譯時，一直遇到錯誤！
 
-發生 Linker（連結器）錯誤是因為 Sun 系統在不會自動編入 socket 函式庫。請參考導讀中的（Solaris/SunOS 程式設計師要注意的事情），有如何處理這個問題的範例。
+發生 Linker（連結器）錯誤是因為 Sun 系統不會自動編入 socket 函式庫。請參考導讀中的（Solaris/SunOS 程式設計師要注意的事情），有如何處理這個問題的範例。
 
 ## 為什麼 select() 跟 signal 合不來呢？
 
@@ -210,7 +210,7 @@ if (!strncmp(str, "foobar", 6)) {
 
 在 VC++ 的使用手冊搜尋 "fork" 或 "POSIX"，看它是否能給你什麼線索。
 
-如果這樣一點都沒有用，拿掉 fork()/sigaction 這些東西，用 Win32 中等價的函式來取代：CreateProcess()。我不知道怎麼用CreateProcess()，它有多的數不清的參數，不過在 VC++ 的文件中應該可以找到怎麼使用它。
+如果這樣一點都沒有用，拿掉 fork()/sigaction 這些東西，用 Win32 中等價的函式來取代：CreateProcess()。我不知道怎麼用CreateProcess()，它有多得數不清的參數，不過在 VC++ 的文件中應該可以找到怎麼使用它。
 
 ## 我在防火牆（firewall）後面，我該如何讓防火牆外面的人知道我的 IP 位址，讓他們可以連線到我的電腦呢？
 

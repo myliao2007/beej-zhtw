@@ -4,13 +4,13 @@
 
 沒問題，朋友。我們正要講這件事。
 
-因為 datagram socket 沒有連線到到遠端主機，猜猜看，我們在送出封包以前會需要哪些資訊呢？
+因為 datagram socket 沒有連線到遠端主機，猜猜看，我們在送出封包以前會需要哪些資訊呢？
 
 對！目的位址！在這裡搶先看：
 
 ```c
-sendto(int sockfd, const void *msg, int len, unsigned int flags,
-       const struct sockaddr *to, socklen_t tolen);
+int sendto(int sockfd, const void *msg, int len, unsigned int flags,
+           const struct sockaddr *to, socklen_t tolen);
 ```
 
 如你所見，這個呼叫基本上與呼叫 send() 一樣，只是多了兩個額外的資訊。to 是一個指向 struct sockaddr（這或許是另一個你可以在最後轉型的 struct sockaddr\_in 或 struct sockaddr\_in6 或 struct sockaddr\_storage）的指標，它包含了目的 IP address 與 port。tolen 是一個 int，可以單純地將它設定為 sizeof \*to 或 sizeof(struct sockaddr\_storage)。

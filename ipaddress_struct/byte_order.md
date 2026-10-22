@@ -14,7 +14,7 @@ Byte Order 其實就是，若你想要用兩個 bytes 的十六進制數字來�
 
 照理說，Big-Endian 又稱為 Network Byte Order，因為這個順序與我們網路類型順序一樣。
 
-你的電腦會以 Host Byte Order 儲存數字，如果是 Intel 80x86，Host Byte Order 是 Little-Endian；若是 Motorola 68k，則 Host Byte Order 是 Big-Endian；若是 PowerPC，Host Byte Order 就是 … 恩，這要看你的 PowerPC 而定。
+你的電腦會以 Host Byte Order 儲存數字，如果是 Intel 80x86，Host Byte Order 是 Little-Endian；若是 Motorola 68k，則 Host Byte Order 是 Big-Endian；若是 PowerPC，Host Byte Order 就是 … 嗯，這要看你的 PowerPC 而定。
 
 大多數當你在打造封包或填寫資料結構時，你需要確認你的 port number 跟 IP address 都是 Network Byte Order。只是如果你不知道本機的 Host Byte Order，那該怎麼做呢？
 

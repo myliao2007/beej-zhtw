@@ -32,7 +32,7 @@ struct pollfd {
 * POLLOUT         當我可以送［send()］資料到這個 socket 而不會 blocking 時，通知我。
 *   POLLPRI         當 out-of-band data 就緒可收時，通知我。
 
-    一旦 poll() call 返回時，會透過對上述欄位進行 OR 位元運算來建構 revents 欄位，以告訴你哪些 descriptor 目前已經有事件發生，此外，其它的欄位可能會保持原值：
+    一旦 poll() call 返回時，會透過對上述欄位進行 OR 位元運算來建構 revents 欄位，以告訴你哪些 descriptor 目前已經有事件發生，此外，也可能會出現下列其它的欄位：
 * POLLERR         在這個 socket 上已經發生錯誤
 * POLLHUP         遠端連線已經斷線。
 * POLLNVAL        fd socket descriptor 有點問題，或許是因為沒有初始化？

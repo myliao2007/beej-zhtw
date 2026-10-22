@@ -50,8 +50,9 @@ FD_ZERO(fd_set *set);            將 set 整個清為零。
 
 如果時間超過了，而 select() 還沒有找到任何就緒的 file descriptor 時，它就會返回，讓你可以繼續做其它事情。
 
-```c
 struct timeval 的欄位如下：
+
+```c
 struct timeval {
   int tv_sec; // 秒（second）
   int tv_usec; // 微秒（microseconds）
@@ -73,7 +74,7 @@ struct timeval {
 
 另一件有趣的事：如果你將 struct timeval 的欄位設定為 0，select() 會在輪詢過 sets 中的每個 file descriptors 之後，就馬上 timeout。如果你將 timeout 參數設定為 NULL，它就永遠不會 timeout，並且陷入等待，直到至少一個 file descriptor 已經就緒（ready）。如果你不在乎等待時間，就在呼叫 select() 時將 timeout 參數設定為 NULL。
 
-下列的程式碼片段 \[25] 等待 2.5 秒後，就會出現 standard input（標準輸入）所輸入的東西：
+下列的程式碼片段 \[25] 會等待 2.5 秒，看 standard input（標準輸入）是否有輸入東西：
 
 ```c
 /*
@@ -304,7 +305,7 @@ int main(void)
 
 我說過，我們要檢查 listen 的 socket 是否就緒可讀，如果可讀，這代表我有一個待處理的連線，而且我要 accept() 這個連線，並將它新增到 master set。同樣地，當 client 連線就緒可讀且 recv() 傳回 0 時，我們就能知道 client 關閉了連線，而我必須將這個 socket descriptor 從 master set 中移除。
 
-若 client 的 recv() 傳回非零的值，因而，我能知道 client 已經收到了一些資料，所以我收下這些資料，並接著到 master 清單，並將資料送給其它已連線的每個 clients。
+若 client 的 recv() 傳回非零的值，因而，我能知道已經收到了 client 的一些資料，所以我收下這些資料，並接著到 master 清單，並將資料送給其它已連線的每個 clients。
 
 我的朋友們，以上是萬能 select() 函式的概述，這真是一件不簡單的事情。
 

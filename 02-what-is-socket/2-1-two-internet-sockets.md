@@ -26,7 +26,7 @@ Stream socket 是如何達成如此高品質的資料傳送呢？
 
 好，這裡說明一下現況：如果你送出一個 datagram（訊息封包），它可能會順利到達、可能不會按照順序到達，而如果它到達了，封包中的資料就是正確的。
 
-譯註： TCP 會在傳輸層對將上層送來的過大訊息分割成多個分段（TCP segments），而 UDP 本身不會，UDP 是訊息導向的（message oriented），若 UDP 訊息過大時（整體封包長度超過 MTU），則會由 host 或 router 在 IP 層對封包進行分割，將一個 IP packet 分割成多個 IP fragments。IP fragmention 的缺點是，接收端的系統需要做 IP 封包的重組，將多個 fragments 重組合併為原本的 IP 封包，同時也會增加封包遺失的機率。如將一個 IP packet 分裂成多個 IP fragments，只要其中一個 IP fragment 遺失了，接收端就會無法順利重組 IP 封包，因而造成封包的遺失，若是高可靠度的應用，則上層協定需重送整個 packet 的資料。
+譯註： TCP 會在傳輸層將上層送來的過大訊息分割成多個分段（TCP segments），而 UDP 本身不會，UDP 是訊息導向的（message oriented），若 UDP 訊息過大時（整體封包長度超過 MTU），則會由 host 或 router 在 IP 層對封包進行分割，將一個 IP packet 分割成多個 IP fragments。IP fragmentation 的缺點是，接收端的系統需要做 IP 封包的重組，將多個 fragments 重組合併為原本的 IP 封包，同時也會增加封包遺失的機率。如將一個 IP packet 分裂成多個 IP fragments，只要其中一個 IP fragment 遺失了，接收端就會無法順利重組 IP 封包，因而造成封包的遺失，若是高可靠度的應用，則上層協定需重送整個 packet 的資料。
 
 \[6] [http://tools.ietf.org/html/rfc793](http://tools.ietf.org/html/rfc793) \[7] [http://tools.ietf.org/html/rfc791](http://tools.ietf.org/html/rfc791)
 
@@ -36,7 +36,7 @@ Datagram sockets 也使用 IP 進行 routing（路由遶送），不過它們不
 
 好，基本上，這跟你在使用 stream socket 時不同，你不用維護一個開啟的連線，你只需打造封包、給它一個 IP header 與目的資訊、送出，不需要連線。通常用 datagram socket 的時機是在沒有可用的 TCP stack 時；或者當一些封包遺失不會造成什麼重大事故時。這類應用程式的例子有：tftp（trivial file transfer protocol，簡易檔案傳輸協定，是 FTP 的小兄弟），多人遊戲、串流音樂、影像會議等。
 
-＂等一下！tftp 和 dhcpd 是用來在一台主機與另一台之間傳輸二進制的應用資料！你如果想要應用程式能在資料抵達時正常運作，那資料就不能遺失阿！這是什麼黑魔法？＂
+＂等一下！tftp 和 dhcpd 是用來在一台主機與另一台之間傳輸二進制的應用資料！你如果想要應用程式能在資料抵達時正常運作，那資料就不能遺失啊！這是什麼黑魔法？＂
 
 好，我的人族好友，tftp 與類似的程式會在 UDP 的上層使用它們自己的協定。比如：tftp 協定會報告每個收送的封包，接收端必須送回一個封包表示：＂我收到了！＂［一個＂ACK＂回報封包］。若原本封包的傳送端在五秒內沒有收到回應，這表示它該重送這個封包，直到收到 ACK 為止。在實作可靠的 SOCK\_DGRAM 應用程式時，這個回報的過程很重要。
 
@@ -52,4 +52,4 @@ Datagram sockets 也使用 IP 進行 routing（路由遶送），不過它們不
 
 datagram（訊息式）socket 是基於訊息導向的方式傳送資料，應用程式送出的每筆資料會如平信的概念送出，由於遶送封包的路徑可能會隨著網路條件而改變，每筆資料抵達的順序不一定會按照送出的順序抵達，並且如平信般，信件可能在遞送過程遺失，而寄件人並無法知道是否遞送成功。
 
-初步簡單知道應用這兩種 sockets 的時機：當需要資料能完整送達目地時，就使用 stream socket，若是部分資料遺失也無妨時，就可以使用 datagram socket。
+初步簡單知道應用這兩種 sockets 的時機：當需要資料能完整送達目的地時，就使用 stream socket，若是部分資料遺失也無妨時，就可以使用 datagram socket。

@@ -9,7 +9,7 @@
 int bind(int sockfd, struct sockaddr *my_addr, int addrlen);
 ```
 
-sockfd 是 socket() 傳回的 socket file descriptor。my\_addr 是指向包含你的位址資訊、名稱及 IP address 的 struct sockaddr 之指標。addrlen 是以 byte 為單位的位址長度。
+sockfd 是 socket() 傳回的 socket file descriptor。my\_addr 是指向包含你的位址資訊，即 port 及 IP address 的 struct sockaddr 之指標。addrlen 是以 byte 為單位的位址長度。
 
 呼！有點比較好玩了。我們來看一個範例，它將 socket bind（綁定）到執行程式的主機上，port 是 3490：
 
@@ -61,7 +61,7 @@ bind(sockfd, (struct sockaddr *)&my_addr, sizeof my_addr);
 
 「也有一個你能用於變數初始器（variable initializer）的 IN6ADDR\_ANY\_INIT macro（巨集）」
 
-另一件呼叫 bind() 時要小心的事情是：不要用太小的 port number。全部 1024 以下的 ports 都是保留的（除非你是系統管理員）！你可以使用任何 1024 以上的 port number，最高到 65535（提供尚未被其它程式使用的）。
+另一件呼叫 bind() 時要小心的事情是：不要用太小的 port number。全部 1024 以下的 ports 都是保留的（除非你是系統管理員）！你可以使用任何 1024 以上的 port number，最高到 65535（只要尚未被其它程式使用）。
 
 你可能有注意到，有時候你試著重新執行 server，而 bind() 卻失敗了，它聲稱＂Address already in use.＂（位址使用中）。這是什麼意思呢？很好，有些連接到 socket 的連線還懸在 kernel 裡面，而它佔據了這個 port。你可以等待它自行清除（一分鐘之類），或者在你的程式中新增程式碼，讓它重新使用這個 port，類似這樣：
 

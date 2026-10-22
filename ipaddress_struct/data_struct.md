@@ -48,7 +48,7 @@ struct sockaddr {
 };
 ```
 
-sa\_family 可能是任何東西，不過在這份文件中我們會用到的是 AF\_INET［IPv4］或 AF\_INET6［IPv6］。sa\_data 包含一個 socket 的目地位址與 port number。這樣很不方便，因為你不會想要手動的將位址封裝到 sa\_data 裡。
+sa\_family 可能是任何東西，不過在這份文件中我們會用到的是 AF\_INET［IPv4］或 AF\_INET6［IPv6］。sa\_data 包含一個 socket 的目的位址與 port number。這樣很不方便，因為你不會想要手動的將位址封裝到 sa\_data 裡。
 
 為了處理 struct sockaddr，程式設計師建立了對等平行的資料結構：struct sockaddr\_in［"in" 是代表 "internet"］，可用在 IPv4。
 
@@ -73,7 +73,7 @@ struct sockaddr_in {
 好，別太激動，不過它是其中一個最恐怖的 union：
 
 ```c
-// (僅限 IPv4 — Ipv6 請參考 struct in6_addr)
+// (僅限 IPv4 — IPv6 請參考 struct in6_addr)
 // Internet address (a structure for historical reasons)
 struct in_addr {
     uint32_t s_addr; // that's a 32-bit int (4 bytes)

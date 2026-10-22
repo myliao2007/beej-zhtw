@@ -32,7 +32,7 @@ select() 函式讓你可以同步檢查多個 sockets，檢查它們是否有資
 
 在 select() 返回之後，這些 sets 的值會改變，用以標示哪些 sockets 是就緒可讀、可寫，及有例外發生等事件。
 
-第一個參數 n 的值是最大的那個 socket descriptor 數值在加上 1。
+第一個參數 n 的值是最大的那個 socket descriptor 數值再加上 1。
 
 最後，struct timeval 可以設定 timeout 的時間，用來告訴 select() 要等待多久的時間。 select() 會在有任何事件發生或 timeout 之後返回。struct timeval 有兩個欄位：tv\_sec 設定秒（second）、tv\_usec 設定微秒（microsecond）［一秒鐘有 1,000,000 微秒］。
 
